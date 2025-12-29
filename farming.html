@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AgriDigital</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="LOGO.png" type="image/png">
+  <link rel="shortcut icon" href="LOGO.png" type="image/png">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* TOP BAR */
+    .topbar{
+      background:#1b5e20;
+      color:white;
+      padding:15px 20px;
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      z-index:1100;
+      display:flex;
+      align-items:center;
+    }
+
+    .topbar img{
+      height:30px;
+      margin-right:10px;
+    }
+
+    .menu-btn{
+      font-size:26px;
+      cursor:pointer;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      height:100%;
+      width:0;
+      position:fixed;
+      top:0;
+      left:0;
+      background:#078d17;
+      overflow-x:hidden;
+      transition:0.3s;
+      padding-top:60px;
+      z-index:1200;
+    }
+
+    .sidebar a{
+      padding:12px 25px;
+      text-decoration:none;
+      color:black;
+      display:block;
+      font-size:18px;
+    }
+
+    .sidebar a:hover{
+      background:#ffffff;
+    }
+
+    /* Sidebar close button */
+    .sidebar .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: black;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      transition: background-image 1s ease-in-out;
+      margin-top:60px;
+    }
+
+    .hero h1{
+      font-size:48px;
+      color:#ffeb3b;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:white;
+      max-width:800px;
+      margin-bottom:30px;
+    }
+
+    .search-box{
+      display:flex;
+    }
+
+    .search-box input{
+      width:320px;
+      padding:15px;
+      border-radius:25px 0 0 25px;
+      border:none;
+      outline:none;
+    }
+
+    .search-box button{
+      padding:15px 20px;
+      border-radius:0 25px 25px 0;
+      border:none;
+      background:#2e7d32;
+      color:white;
+      cursor:pointer;
+    }
+
+    .ubuh{
+      text-align:center;
+      color:#078d17;
+      text-decoration:underline;
+      margin:40px 0 20px;
+    }
+
+    img{
+      max-width:100%;
+    }
+
+    .maize-text{
+      max-width:900px;
+      margin:auto;
+      line-height:1.8;
+      font-size:16px;
+      color:#333;
+      padding:20px;
+    }
+
+    /* Footer */
+    .footer{
+      background:#1b5e20;
+      color:white;
+      padding:40px 20px 20px;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <span class="menu-btn" onclick="openSidebar()">☰</span>
+</header>
+
+<!-- Sidebar with Close Button -->
+<div id="sidebar" class="sidebar">
+  <span class="close-btn" onclick="closeSidebar()">×</span>
+  <a href="ubuhinzi.html">Ubuhinzi</a>
+  <a href="#">Ubworozi</a>
+  <a href="#">Imbuto n’Imboga</a>
+  <a href="#">Amatungo</a>
+  <a href="#">Inama ku Bahinzi</a>
+</div>
+
+<section class="hero">
+  <h1>AGRI-DIGITAL MARKET</h1>
+  <p>
+    Uru rubuga rugamije gufasha abahinzi n’aborozi kubona amakuru,
+    ubumenyi n’amasoko bigatuma umusaruro wiyongera.
+  </p>
+
+  <div class="search-box">
+    <input type="text" placeholder="Shakisha amakuru y’ubuhinzi">
+    <button>🔍</button>
+  </div>
+</section>
+
+<h2 class="ubuh">UBUHINZI MU RWANDA</h2>
+
+<div class="maize-text">
+  <p>
+    Ubuhinzi ni inkingi ikomeye y’ubukungu bw’u Rwanda.
+    Abaturage benshi batunzwe n’ubuhinzi bw’ibihingwa
+    nk’ibigori, umuceri, ibirayi, ibitoki, ikawa n’icyayi.
+  </p>
+</div>
+
+<img src="farmes.jpg" alt="Ubuhinzi mu Rwanda">
+
+<h2 class="ubuh">UBWOROZI MU RWANDA</h2>
+
+<img src="gukama.jpg" alt="Ubworozi mu Rwanda">
+
+<div class="maize-text">
+  <p>
+    Ubworozi bugira uruhare runini mu mibereho y’abaturage.
+    Borora inka, ihene, intama, ingurube n’inkoko.
+  </p>
+</div>
+
+<footer class="footer">
+  © 2025 – AgriDigital program
+</footer>
+
+<script>
+  function openSidebar(){
+    document.getElementById("sidebar").style.width = "250px";
+  }
+
+  function closeSidebar(){
+    document.getElementById("sidebar").style.width = "0";
+  }
+
+  // Hero background slider
+  const images = ["farmer.jpg", "cows.jpg", "chicken.jpg"];
+  let index = 0;
+  const hero = document.querySelector(".hero");
+
+  function changeBackground(){
+    hero.style.backgroundImage = `url('${images[index]}')`;
+    index = (index + 1) % images.length;
+  }
+
+  changeBackground();
+  setInterval(changeBackground, 5000);
+</script>
+
+</body>
+</html>
